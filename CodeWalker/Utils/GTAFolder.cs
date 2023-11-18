@@ -32,9 +32,9 @@ namespace CodeWalker
                 return false;
             }
 
-            if(!File.Exists(folder + @"\gta5.exe"))
+            if(!File.Exists(folder + @"\rdr2.exe"))
             {
-                failReason = $"GTA5.exe not found in folder \"{folder}\"";
+                failReason = $"RDR2.exe not found in folder \"{folder}\"";
                 return false;
             }
 
@@ -74,12 +74,12 @@ namespace CodeWalker
                 SetGTAFolder(folder);
                 if(folder != origFolder)
                 {
-                    MessageBox.Show($"Successfully changed GTA Folder to \"{folder}\"", "Set GTA Folder", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show($"Successfully changed RDR Folder to \"{folder}\"", "Set RDR Folder", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 return true;
             } else
             {
-                var tryAgain = MessageBox.Show($"Folder \"{folder}\" is not a valid GTA folder:\n\n{failReason}\n\nDo you want to try choosing a different folder?", "Unable to set GTA Folder", MessageBoxButtons.RetryCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+                var tryAgain = MessageBox.Show($"Folder \"{folder}\" is not a valid RDR folder:\n\n{failReason}\n\nDo you want to try choosing a different folder?", "Unable to set RDR Folder", MessageBoxButtons.RetryCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
                 if(tryAgain == DialogResult.Retry)
                 {
                     return UpdateGTAFolder(false);
@@ -119,9 +119,9 @@ namespace CodeWalker
             string retailPathValue = baseKey32.OpenSubKey(@"Software\Rockstar Games\Grand Theft Auto V")?.GetValue("InstallFolder") as string;
             string oivPathValue = Registry.CurrentUser.OpenSubKey(@"Software\NewTechnologyStudio\OpenIV.exe\BrowseForFolder")?.GetValue("game_path_Five_pc") as string;
 
-            if(steamPathValue?.EndsWith("\\GTAV") == true)
+            if(steamPathValue?.EndsWith("\\RDR2") == true)
             {
-                steamPathValue = steamPathValue.Substring(0, steamPathValue.LastIndexOf("\\GTAV"));
+                steamPathValue = steamPathValue.Substring(0, steamPathValue.LastIndexOf("\\RDR2"));
             }
 
             if(ValidateGTAFolder(steamPathValue))

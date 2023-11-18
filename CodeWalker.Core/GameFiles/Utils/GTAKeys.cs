@@ -46,10 +46,10 @@ namespace CodeWalker.GameFiles
         // aes decryption/encryption key...
         public static byte[] PC_AES_KEY; // 32
 
-        // ng decryption/encryption expanded keys...      
+        // ng decryption/encryption expanded keys...
         public static byte[][] PC_NG_KEYS; // 101, 272
 
-        // ng decryption tables...       
+        // ng decryption tables...
         public static uint[][][] PC_NG_DECRYPT_TABLES; // 17, 16, 256
 
         // ng encryption tables...
@@ -68,7 +68,7 @@ namespace CodeWalker.GameFiles
 
 
 
-        public static void Generate(byte[] exeData, Action<string> updateStatus) //Stream exeStr)// 
+        public static void Generate(byte[] exeData, Action<string> updateStatus) //Stream exeStr)//
         {
             var exeStr = new MemoryStream(exeData);
 
@@ -250,7 +250,7 @@ namespace CodeWalker.GameFiles
 
             if (string.IsNullOrEmpty(key))
             {
-                byte[] exedata = File.ReadAllBytes(path + "\\gta5.exe");
+                byte[] exedata = File.ReadAllBytes(path + "\\rdr2.exe");
                 GenerateV2(exedata, null);
             }
             else

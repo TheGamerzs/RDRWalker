@@ -192,7 +192,7 @@ namespace CodeWalker
                 }
                 catch
                 {
-                    UpdateStatus("Unable to load gta5.exe!");
+                    UpdateStatus("Unable to load rdr2.exe!");
                     return;
                 }
 
@@ -692,7 +692,7 @@ namespace CodeWalker
             var root = new MainTreeFolder();
             root.FullPath = GTAFolder.GetCurrentGTAFolderWithTrailingSlash();
             root.Path = "";
-            root.Name = "GTA V";
+            root.Name = "RDR 2";
             RootFolder = root;
 
             RefreshMainTreeViewRoot(root);
@@ -2497,7 +2497,7 @@ namespace CodeWalker
             if (CurrentFolder == null) return;//shouldn't happen
             if (CurrentFolder?.IsSearchResults ?? false) return;
 
-            string fname = Prompt.ShowDialog(this, "Enter a name for the new archive:", "Create RPF7 archive", "new");
+            string fname = Prompt.ShowDialog(this, "Enter a name for the new archive:", "Create RPF8 archive", "new");
             if (string.IsNullOrEmpty(fname))
             {
                 return;//no name was provided.

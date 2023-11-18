@@ -62,7 +62,7 @@ namespace CodeWalker
             // Always check the GTA folder first thing
             if (!GTAFolder.UpdateGTAFolder(Properties.Settings.Default.RememberGTAFolder))
             {
-                MessageBox.Show("Could not load CodeWalker because no valid GTA 5 folder was selected. CodeWalker will now exit.", "GTA 5 Folder Not Found", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                MessageBox.Show("Could not load RDRWalker because no valid RDR 2 folder was selected. RDRWalker will now exit.", "RDR 2 Folder Not Found", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return;
             }
 #if !DEBUG
@@ -119,12 +119,12 @@ namespace CodeWalker
                 jtWorld.WorkingDirectory = cwdir;
                 jtWorld.Arguments = "";
                 jtWorld.Title = "World View";
-                jtWorld.Description = "Display the GTAV World";
+                jtWorld.Description = "Display the RDR2 World";
                 jtWorld.CustomCategory = "Launch Options";
 
                 var jtExplorer = new JumpTask();
                 jtExplorer.ApplicationPath = cwpath;
-                jtExplorer.IconResourcePath = Path.Combine(cwdir, "CodeWalker RPF Explorer.exe");
+                jtExplorer.IconResourcePath = Path.Combine(cwdir, "RDRWalker RPF Explorer.exe");
                 jtExplorer.WorkingDirectory = cwdir;
                 jtExplorer.Arguments = "explorer";
                 jtExplorer.Title = "RPF Explorer";
@@ -133,7 +133,7 @@ namespace CodeWalker
 
                 var jtVehicles = new JumpTask();
                 jtVehicles.ApplicationPath = cwpath;
-                jtVehicles.IconResourcePath = Path.Combine(cwdir, "CodeWalker Vehicle Viewer.exe");
+                jtVehicles.IconResourcePath = Path.Combine(cwdir, "RDRWalker Vehicle Viewer.exe");
                 jtVehicles.WorkingDirectory = cwdir;
                 jtVehicles.Arguments = "vehicles";
                 jtVehicles.Title = "Vehicle Viewer";
@@ -142,7 +142,7 @@ namespace CodeWalker
 
                 var jtPeds = new JumpTask();
                 jtPeds.ApplicationPath = cwpath;
-                jtPeds.IconResourcePath = Path.Combine(cwdir, "CodeWalker Ped Viewer.exe");
+                jtPeds.IconResourcePath = Path.Combine(cwdir, "RDRWalker Ped Viewer.exe");
                 jtPeds.WorkingDirectory = cwdir;
                 jtPeds.Arguments = "peds";
                 jtPeds.Title = "Ped Viewer";

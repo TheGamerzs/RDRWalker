@@ -137,14 +137,14 @@ namespace CodeWalker.GameFiles
 
             StartPos = br.BaseStream.Position;
 
-            Version = br.ReadUInt32(); //RPF Version - GTAV should be 0x52504637 (1380992567)
+            Version = br.ReadUInt32(); //RPF Version - RDR2 should be 0x52504638
             EntryCount = br.ReadUInt32(); //Number of Entries
             NamesLength = br.ReadUInt32();
             Encryption = (RpfEncryption)br.ReadUInt32(); //0x04E45504F (1313165391): none;  0x0ffffff9 (268435449): AES
 
-            if (Version != 0x52504637)
+            if (Version != 0x52504638)
             {
-                throw new Exception("Invalid Resource - not GTAV!");
+                throw new Exception("Invalid Resource - not RDR2!");
             }
 
             byte[] entriesdata = br.ReadBytes((int)EntryCount * 16); //4x uints each
@@ -1375,7 +1375,7 @@ namespace CodeWalker.GameFiles
         {
             var stream = bw.BaseStream;
             Encryption = encryption;
-            Version = 0x52504637; //'RPF7'
+            Version = 0x52504638; //'RPF8'
             IsAESEncrypted = (encryption == RpfEncryption.AES);
             IsNGEncrypted = (encryption == RpfEncryption.NG);
             StartPos = stream.Position;
@@ -1661,7 +1661,7 @@ namespace CodeWalker.GameFiles
                 entry = rentry;
             }
 
-            if (namel.EndsWith(".rpf") && (hdr == 0x52504637)) //'RPF7'
+            if (namel.EndsWith(".rpf") && (hdr == 0x52504638)) //'RPF8'
             {
                 isrpf = true;
             }
@@ -2095,7 +2095,7 @@ namespace CodeWalker.GameFiles
             uint ident = reader.ReadUInt32();
             if (ident != 0x7FFFFF00u)
             {
-                throw new Exception("Error in RPF7 directory entry.");
+                throw new Exception("Error in RPF8 directory entry.");
             }
             EntriesIndex = reader.ReadUInt32();
             EntriesCount = reader.ReadUInt32();
@@ -2144,7 +2144,7 @@ namespace CodeWalker.GameFiles
                 case 0: IsEncrypted = false; break;
                 case 1: IsEncrypted = true; break;
                 default:
-                    throw new Exception("Error in RPF7 file entry.");
+                    throw new Exception("Error in RPF8 file entry.");
             }
 
         }
